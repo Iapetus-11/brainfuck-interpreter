@@ -30,8 +30,11 @@ def evaluate(bf: str) -> None:
 
         if c == '>':
             ptr += 1
+
+            if ptr == len(arr):
+                arr.append(0)
         elif c == '<':
-            ptr = 0 if ptr <= 0 else ptr - 1
+            ptr -= 1
         elif c == '+':
             arr[ptr] += 1
         elif c == '-':
