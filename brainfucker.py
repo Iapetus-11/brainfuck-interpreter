@@ -50,4 +50,6 @@ def evaluate(bf: str) -> None:
 
         i += 1
 
+    print()
+
 evaluate(input(': '))
