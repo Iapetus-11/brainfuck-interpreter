@@ -1,12 +1,12 @@
 valid = '><+-.,[]'
 
-bf = ''.join(c for c in input(': ') if c in valid)
-
 arr = []
 ptr = 0
 
 def interpreter(bf: str):
     while i < len(bf):
+        print(arr)
+
         c = bf[i]
 
         if c == '>':
@@ -28,3 +28,5 @@ def interpreter(bf: str):
             return
 
         i += 1
+
+interpreter(''.join(c for c in input(': ') if c in valid))
