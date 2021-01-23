@@ -1,9 +1,11 @@
 valid = '><+-.,[]'
 
+global arr, ptr
 arr = []
 ptr = 0
 
 def interpreter(bf: str):
+    global arr, ptr
     i = 0
 
     while i < len(bf):
