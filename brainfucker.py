@@ -2,6 +2,7 @@
 def cleanup(bf: str) -> str:
     return ''.join(c for c in bf if c in '><+-.,[]')
 
+
 def make_bracemap(bf: str) -> dict:
     bracemap = {}
     temp = []
@@ -51,5 +52,6 @@ def evaluate(bf: str) -> None:
         i += 1
 
     print()
+
 
 evaluate(input(': '))
