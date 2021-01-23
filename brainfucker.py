@@ -1,25 +1,36 @@
-valid = '><+-.,[]'
+def cleanup(bf: str) -> str:
+    return ''.join(c in bf if c in '><+-.,[]')
 
-global arr, ptr
-arr = []
-ptr = 0
+def make_bracemap(bf: str) -> dict:
+    bracemap = {}
+    temp = []
 
-def interpreter(bf: str):
-    global arr, ptr
+    for i, c in enumerate(bf):
+        if c == '[':
+            temp.append(i)
+        elif c == ']':
+            start = temp.pop()
+            bracemap[start] = i
+            bracemap[i] = start
+
+    return bracemap
+
+
+def evaluate(bf: str) -> None:
+    bf = cleanup(bf)
+    bracemap = make_bracemap(bf)
+
+    arr = [0]
+    ptr = 0
     i = 0
 
     while i < len(bf):
-        print(arr)
-
         c = bf[i]
 
         if c == '>':
             ptr += 1
-
-            if ptr >= len(arr):
-                arr.append(0)
         elif c == '<':
-            ptr -= 1
+            ptr = 0 if ptr <= 0 else ptr - 1
         elif c == '+':
             arr[ptr] += 1
         elif c == '-':
@@ -27,13 +38,12 @@ def interpreter(bf: str):
         elif c == '.':
             print(arr[ptr])
         elif c == ',':
-            arr[ptr] = int(input(': '))
-        elif c == '[':
-            while arr[ptr]:
-                interpreter(bf[i:])
-        elif c == ']':
-            return
+            arr[ptr] = input(': ')[0]
+        elif c == '[' and arr[ptr] == 0:
+            ptr = bracemap[ptr]
+        elif c == ']' and arr[ptr] != 0:
+            ptr = bracemap[ptr]
 
-        i += 1
+        ptr += 1
 
-interpreter(''.join(c for c in input(': ') if c in valid))
+evaluate(input(': '))
