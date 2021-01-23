@@ -43,7 +43,7 @@ def evaluate(bf: str) -> None:
         elif c == '.':
             print(chr(arr[ptr]), end='')
         elif c == ',':
-            arr[ptr] = ord(input(': ')[0])
+            arr[ptr] = ord(input('\n: ')[0])
         elif c == '[' and arr[ptr] == 0:
             i = bracemap[i]
         elif c == ']' and arr[ptr] != 0:
