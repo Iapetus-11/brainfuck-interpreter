@@ -27,7 +27,6 @@ def evaluate(bf: str) -> None:
 
     while i < len(bf):
         c = bf[i]
-        print(c)
 
         if c == '>':
             ptr += 1
@@ -41,7 +40,7 @@ def evaluate(bf: str) -> None:
         elif c == '-':
             arr[ptr] = arr[ptr] - 1 if arr[ptr] > 0 else 255
         elif c == '.':
-            print(chr(arr[ptr]))
+            print(chr(arr[ptr]), end='')
         elif c == ',':
             arr[ptr] = ord(input(': ')[0])
         elif c == '[' and arr[ptr] == 0:
