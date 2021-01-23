@@ -4,6 +4,8 @@ arr = []
 ptr = 0
 
 def interpreter(bf: str):
+    i = 0
+
     while i < len(bf):
         print(arr)
 
@@ -11,6 +13,9 @@ def interpreter(bf: str):
 
         if c == '>':
             ptr += 1
+
+            if ptr >= len(arr):
+                arr.append(0)
         elif c == '<':
             ptr -= 1
         elif c == '+':
