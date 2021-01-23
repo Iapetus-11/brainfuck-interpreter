@@ -1,5 +1,6 @@
+
 def cleanup(bf: str) -> str:
-    return ''.join(c in bf if c in '><+-.,[]')
+    return ''.join(c for c in bf if c in '><+-.,[]')
 
 def make_bracemap(bf: str) -> dict:
     bracemap = {}
