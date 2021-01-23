@@ -48,6 +48,6 @@ def evaluate(bf: str) -> None:
         elif c == ']' and arr[ptr] != 0:
             i = bracemap[i]
 
-        ptr += 1
+        i += 1
 
 evaluate(input(': '))
