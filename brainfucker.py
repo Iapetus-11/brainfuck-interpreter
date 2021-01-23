@@ -26,8 +26,8 @@ def evaluate(bf: str) -> None:
     i = 0
 
     while i < len(bf):
-        print(i)
         c = bf[i]
+        print(c)
 
         if c == '>':
             ptr += 1
@@ -35,15 +35,15 @@ def evaluate(bf: str) -> None:
             if ptr == len(arr):
                 arr.append(0)
         elif c == '<':
-            ptr -= 1
+            ptr = 0 if ptr <= 0 else ptr - 1
         elif c == '+':
-            arr[ptr] += 1
+            arr[ptr] = arr[ptr] + 1 if arr[ptr] < 255 else 0
         elif c == '-':
-            arr[ptr] -= 1
+            arr[ptr] = arr[ptr] - 1 if arr[ptr] > 0 else 255
         elif c == '.':
-            print(arr[ptr])
+            print(chr(arr[ptr]))
         elif c == ',':
-            arr[ptr] = input(': ')[0]
+            arr[ptr] = ord(input(': ')[0])
         elif c == '[' and arr[ptr] == 0:
             i = bracemap[i]
         elif c == ']' and arr[ptr] != 0:
