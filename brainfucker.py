@@ -26,6 +26,7 @@ def evaluate(bf: str) -> None:
     i = 0
 
     while i < len(bf):
+        print(i)
         c = bf[i]
 
         if c == '>':
