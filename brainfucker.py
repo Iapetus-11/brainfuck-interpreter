@@ -41,9 +41,9 @@ def evaluate(bf: str) -> None:
         elif c == ',':
             arr[ptr] = input(': ')[0]
         elif c == '[' and arr[ptr] == 0:
-            ptr = bracemap[ptr]
+            i = bracemap[i]
         elif c == ']' and arr[ptr] != 0:
-            ptr = bracemap[ptr]
+            i = bracemap[i]
 
         ptr += 1
 
